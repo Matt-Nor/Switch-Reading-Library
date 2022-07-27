@@ -48,7 +48,7 @@
 #include "controllerLayout.h"
 
 
-class controllerLayout 
+class switchReading
 {
 private:
 struct switch_control {
@@ -59,7 +59,7 @@ struct switch_control {
   bool switch_pending;             // records if switch in transition or not
   long unsigned int elapse_timer;  // records debounce timer count when associated switch is in transition
   bool switch_status;              // used for TOGGLE SWITCHES only - current state of toggle switch.
-} switches[num_switches] = {
+} switches[SWITCH_COUNT] = {
   // Note order of preset entries not relevant, but keep in a tidy order
 
   TOGGLE_SWITCH,
@@ -296,8 +296,8 @@ struct switch_control {
 };
 
 public:
-switchReading(uint8_t sw);
-void switchSetup (uint8_t sw);
+switchReading();
+void switchSetup ();
 bool read_switch (uint8_t sw);
 bool read_toggle_switch (uint8_t sw);
 bool read_button_switch (uint8_t sw);

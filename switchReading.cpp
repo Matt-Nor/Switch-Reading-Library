@@ -39,8 +39,8 @@ switchReading::switchReading (){
  *  initalize buttons
  */
 
-void switchReading::switchSetup(uint8_t sw){
-for (int i = 0; i < sw; i++) {
+void switchReading::switchSetup(){
+for (int i = 0; i < SWITCH_COUNT; i++) {
     // Define the switch circuit type - circuit_type is:
     // circuit_C1 (INPUT) or circuit_C2 (INPUT_PULLUP)
     pinMode(switches[i].switch_pin, switches[i].circuit_type);
@@ -88,11 +88,11 @@ int pin_value = digitalRead(switches[sw].switch_pin);  // test current state of 
         // Debounce period elapse so assume switch has settled down after transition
         switches[sw].switch_status = !switches[sw].switch_status;  // flip status
         switches[sw].switch_pending = false;                       // cease transition cycle
-        return switched;
+        return SWITCHED;
       }
     }
   }
-  return !switched;
+  return !SWITCHED;
 }
 
 /**
@@ -107,25 +107,25 @@ int switch_pin_reading;
     switches[sw].elapse_timer = millis();
     switches[sw].switch_pending = true;
 
-    return switched;  // now waiting for debounce to conclude
+    return SWITCHED;  // now waiting for debounce to conclude
   }
   if (switches[sw].switch_pending) {
     // Switch was pressed, now released (OFF), so check if debounce time elapsed
     if (millis() - switches[sw].elapse_timer > DEBOUNCE) {
       // dounce time elapsed, so switch press cycle complete
       switches[sw].switch_pending = false;
-      return !switched;
+      return !SWITCHED;
     }
   }
 
-  return !switched;
+  return !SWITCHED;
 }
 
 uint16_t switchReading::pollSwitches(){
 uint16_t msg = 0;
 
   for (int sw = 0; sw < SWITCH_COUNT; sw++) {
-    if (read_switch(sw) == switched) {
+    if (read_switch(sw) == SWITCHED) {
       msg = ((uint16_t)switches[0].switch_status << 8) | ((uint8_t)switches[sw].switch_pin);
     }
   }
