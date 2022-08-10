@@ -41,23 +41,24 @@
 #define SELECT 33
 #define PLAY_BACK 34
 #define TRIGGER_AF 35
-#define SHUTTER 36
-#define RECORD_VIDEO 37
-#define CUSTOM_ONE 38
-#define CUSTOM_TWO 39
-#define CUSTOM_THREE 40
-#define CUSTOM_FOUR 41
+#define SHUTTER_RIGHT 36
+#define SHUTTER_LEFT 37
+#define RECORD_VIDEO 38
+#define CUSTOM_ONE 39
+#define CUSTOM_TWO 40
+#define CUSTOM_THREE 41
+#define CUSTOM_FOUR 42
 
 //define toggle switch
-#define CAMERA_POWER_RIGHT 42
-#define CAMERA_POWER_LEFT 43
-#define CAMERA_SELECT 44
-#define LIGHT_POWER_RIGHT 45
-#define LIGHT_POWER_LEFT 46
-#define MICROPHONE_RECORD 47
-#define VIDEO_TRANSMIT_POWER 48
-#define DRIVE_POWER 49
-#define SHUTTER_SELECT 50
+#define CAMERA_POWER_RIGHT 43
+#define CAMERA_POWER_LEFT 44
+#define CAMERA_SELECT 45
+#define LIGHT_POWER_RIGHT 46
+#define LIGHT_POWER_LEFT 47
+#define MICROPHONE_RECORD 48
+#define VIDEO_TRANSMIT_POWER 49
+#define DRIVE_POWER 50
+#define SHUTTER_SELECT 51
 
 // define number of switches used
 #define SWITCH_COUNT 29  // number of button switches connected
