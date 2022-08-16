@@ -61,6 +61,6 @@
 #define SHUTTER_SELECT 51
 
 // define number of switches used
-#define SWITCH_COUNT 29  // number of button switches connected
+#define SWITCH_COUNT 30  // number of button switches connected
 
 
